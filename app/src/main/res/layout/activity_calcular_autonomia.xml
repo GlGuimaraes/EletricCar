@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CalcularAutonomia">
+
+
+    <ImageView
+        android:layout_margin="16dp"
+        android:id="@+id/imageClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:srcCompat="@drawable/ic_close" />
+
+    <TextView
+        android:layout_below="@id/imageClose"
+        android:id="@+id/text_Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calcular Autonomia"
+        style="@style/TextAppearance.MaterialComponents.Headline5"
+        android:layout_marginStart="16dp"
+        />
+
+    <EditText
+        android:layout_below="@+id/text_Title"
+        android:id="@+id/edit_preco_Kwh"
+        android:layout_width="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="Preço Kwh"
+        android:inputType="numberDecimal"
+        android:maxLength="10"
+        android:maxLines="2"/>
+    <EditText
+        android:id="@+id/edit_km_percorrido"
+        android:layout_width="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="6dp"
+        android:ems="10"
+        android:hint="Km Percorrido"
+        android:inputType="numberDecimal"
+        android:maxLength="10"
+        android:maxLines="2"
+        android:layout_below="@+id/edit_preco_Kwh"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_marginEnd="16dp"
+        android:layout_height="wrap_content"
+        android:text="calcular"
+        android:id="@+id/btn_calcular"
+        android:layout_marginTop="4dp"
+        android:layout_below="@+id/edit_km_percorrido"
+        android:layout_toEndOf="@+id/edit_km_percorrido"
+        android:layout_alignStart="@+id/edit_km_percorrido"/>
+    <TextView
+        android:id="@+id/text_resultado"
+        style="@style/TextAppearance.MaterialComponents.Body2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_calcular"/>
+
+
+</RelativeLayout>
