@@ -3,4 +3,7 @@
     <string name="eletric_car">Eletric Car</string>
     <string name="carros">Carros</string>
     <string name="favoritos">Favoritos</string>
+    <string name="noWifi">Ops, internet não disponível :(</string>
+    <string name="response_erro">Algo deu errado, por favor tente novamente mais tarde</string>
+    <string name="salved_calc">saved_calc</string>
 </resources>

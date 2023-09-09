@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".UI.adapter.car_item">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_card"
+        android:layout_margin="16dp"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="24dp"
+        android:elevation="24dp"
+        android:layout_centerHorizontal="true">
+
+
+        <RelativeLayout
+            android:id="@+id/cl_cardContent"
+            android:background="@color/gray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_car"
+                android:layout_width="wrap_content"
+                android:layout_height="90dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/car" />
+
+            <TextView
+                android:id="@+id/text_preco"
+                android:layout_width="60dp"
+                style="@style/TextAppearance.AppCompat.Body2"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_car"
+                android:layout_marginStart="16dp"
+                android:text="Preço" />
+
+            <TextView
+                android:id="@+id/text_preco_value"
+                android:layout_width="wrap_content"
+                style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_car"
+                android:layout_marginStart="16dp"
+                android:layout_toEndOf="@+id/text_preco"
+                android:text="R$ 300.000,00" />
+
+            <TextView
+                android:id="@+id/text_bateria"
+                android:layout_width="60dp"
+                style="@style/TextAppearance.AppCompat.Body2"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_preco"
+                android:layout_marginStart="16dp"
+                android:text="Bateria" />
+
+            <TextView
+                android:id="@+id/text_bateria_value"
+                android:layout_width="wrap_content"
+                style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_preco_value"
+                android:layout_marginStart="16dp"
+                android:layout_toEndOf="@+id/text_bateria"
+                android:text="R$ 300 kWh" />
+
+            <TextView
+                android:id="@+id/text_potencia"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_bateria"
+                android:layout_marginStart="16dp"
+                style="@style/TextAppearance.AppCompat.Body2"
+                android:text="Potência" />
+
+            <TextView
+                android:id="@+id/text_potencia_value"
+                android:layout_width="wrap_content"
+                style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_bateria_value"
+                android:layout_marginStart="16dp"
+                android:layout_toEndOf="@+id/text_potencia"
+                android:text="300 cv" />
+
+            <TextView
+                android:id="@+id/text_recarga"
+                android:layout_width="60dp"
+                style="@style/TextAppearance.AppCompat.Body2"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_potencia"
+                android:layout_marginStart="16dp"
+                android:text="Recarga" />
+
+            <TextView
+                android:id="@+id/text_recarga_value"
+                style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_potencia_value"
+                android:layout_marginStart="16dp"
+                android:layout_toEndOf="@+id/text_recarga"
+                android:text="23 min"
+                android:layout_marginBottom="16dp"/>
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

@@ -1,12 +1,17 @@
-package com.example.eletriccar
+package com.example.eletriccar.UI
 
-import android.content.Intent
+import android.content.Context
+import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import com.example.eletriccar.R
+import java.net.HttpURLConnection
+import java.net.URL
 
 class CalcularAutonomia : AppCompatActivity() {
     lateinit var preco: EditText
@@ -21,6 +26,12 @@ class CalcularAutonomia : AppCompatActivity() {
 
         setupViews()
         setupListeners()
+        setupCacheResult    ()
+    }
+
+    private fun setupCacheResult() {
+        val valorCalculado = getSharerdPref()
+        resultado.text = valorCalculado.toString()
     }
 
     fun setupViews() {
@@ -45,5 +56,20 @@ class CalcularAutonomia : AppCompatActivity() {
         val result = preco / km
 
         resultado.text = result.toString()
+        saveSharedPref(result)
+    }
+
+    fun saveSharedPref(resultado: Float){
+        val  sharedPref = getPreferences(Context.MODE_PRIVATE) ?: return
+        with(sharedPref.edit()){
+            putFloat(getString(R.string.salved_calc), resultado)
+            apply()
+        }
+    }
+
+    fun getSharerdPref(): Float{
+        val sharedPref = getPreferences(Context.MODE_PRIVATE)
+        return sharedPref.getFloat(getString(R.string.salved_calc), 0.0f)
+
     }
 }
