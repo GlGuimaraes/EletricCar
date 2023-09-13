@@ -1,5 +1,6 @@
 package com.example.eletriccar.UI
 
+import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.media.Image
@@ -26,6 +27,15 @@ import com.example.eletriccar.R
 import com.example.eletriccar.UI.adapter.CarAdapter
 import com.example.eletriccar.data.CarAPI
 import com.example.eletriccar.data.CarFactory
+import com.example.eletriccar.data.local.CarRepository
+import com.example.eletriccar.data.local.CarrosContract
+import com.example.eletriccar.data.local.CarrosContract.CarEntry.COLUMN_NAME_BATERIA
+import com.example.eletriccar.data.local.CarrosContract.CarEntry.COLUMN_NAME_POTENCIA
+import com.example.eletriccar.data.local.CarrosContract.CarEntry.COLUMN_NAME_PRECO
+import com.example.eletriccar.data.local.CarrosContract.CarEntry.COLUMN_NAME_RECARGA
+import com.example.eletriccar.data.local.CarrosContract.CarEntry.COLUMN_NAME_URL_PHOTO
+import com.example.eletriccar.data.local.CarrosContract.CarEntry.TABLE_NAME
+import com.example.eletriccar.data.local.CarsDbHelper
 import com.example.eletriccar.domain.Car
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.json.JSONArray
@@ -127,8 +137,13 @@ class CarFragment: Fragment() {
         val carAdapter = CarAdapter(lista)
         listaCaros.apply {
             isVisible = true // COLOCANDO A LISTA DOS CARROS VISÍVEL
-            adapter = carAdapter}
+            adapter = carAdapter
+        }
+        carAdapter.carItemListenner = { carro ->
 
+            val isSaved = CarRepository(requireContext()).saveIfNotExiste(carro)
+
+        }
     }
     fun setupListeners() {
         fab_calcular.setOnClickListener {
@@ -229,7 +244,8 @@ class CarFragment: Fragment() {
                         bateria = bateria,
                         potencia = potencia,
                         recarga = recarga,
-                        urlPhoto = urlPhoto
+                        urlPhoto = urlPhoto,
+                        isFavorite = false
                     )
 
                     carArray.add(model)
@@ -246,4 +262,5 @@ class CarFragment: Fragment() {
             }
         }
     }
+
 }

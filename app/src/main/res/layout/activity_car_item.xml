@@ -23,6 +23,19 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/img_favorite"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="16dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_star"
+                />
+
+            <ImageView
                 android:id="@+id/img_car"
                 android:layout_width="wrap_content"
                 android:layout_height="90dp"

@@ -26,7 +26,7 @@ class CalcularAutonomia : AppCompatActivity() {
 
         setupViews()
         setupListeners()
-        setupCacheResult    ()
+        setupCacheResult()
     }
 
     private fun setupCacheResult() {
